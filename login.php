@@ -1,3 +1,22 @@
+<?php
+session_start();
+// proses login saat Form dikirim
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+     $password = $_POST['password'] ?? '';
+    
+     // Login sederhana (username: admin, password: 123)
+     if ($username === 'admin' && $password === '123') {
+        $_SESSION['role'] = 'Siswa';
+        header("Location: dasboard.php");
+        exit;
+     } else {
+$error = "Username atau password salah!";
+
+     }
+     }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,9 +26,9 @@
     <h2>Form Login</h2>
 
     <Form method="post">
-        Username: <input type="text" name="username" required><br><br>
-        Username: <input type="text" name="password" required><br><br>
+        username: <input type="text" name="username" required><br><br>
+        password: <input type="text" name="password" required><br><br>
         <button type="submit">Login</button>
-</from>
+</form>
 </body>
 </html>
