@@ -7,11 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
      // Login sederhana (username: admin, password: 123)
      if ($username === 'admin' && $password === '123') {
+        $_SESSION['username'] = $username;
         $_SESSION['role'] = 'Siswa';
         header("Location: dasboard.php");
         exit;
      } else {
-$error = "Username atau password salah!";
+    $error = "Username atau password salah!";
 
      }
      }
@@ -31,4 +32,4 @@ $error = "Username atau password salah!";
         <button type="submit">Login</button>
 </form>
 </body>
-</html>
+</html>  
